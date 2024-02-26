@@ -6,19 +6,23 @@ import Country from '../Country/Country';
 const Countries = () => {
     const [countries, setCountries] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
-        .then(res => res.json())
-        .then(data => setCountries(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setCountries(data))
+    }, [])
 
     return (
-        <div>
-            <h3>Total countries: {countries.length}</h3>
-            {
-                countries.map(country => <Country key={country.cca2} country={country}/>)
-            }
-        </div>
+        <>
+            <div>
+                <h3>Total countries: {countries.length}</h3>
+            </div>
+            <div className='countries-container'>
+                {
+                    countries.map(country => <Country key={country.cca2} country={country} />)
+                }
+            </div>
+        </>
     );
 };
 
