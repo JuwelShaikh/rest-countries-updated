@@ -3,4 +3,16 @@
     margin: 15px 0;
     border-radius: 15px;
     padding: 5px 5px;
+    
+}
+.country-active{
+    border: 2px solid yellowgreen;
+    margin: 15px 0;
+    border-radius: 15px;
+    padding: 5px 5px;
+    background-color: beige;
+    color: black;
+}
+.country-active > button{
+    background-color: yellowgreen;
 }
