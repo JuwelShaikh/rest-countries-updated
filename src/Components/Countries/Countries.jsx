@@ -11,11 +11,13 @@ const Countries = () => {
             .then(res => res.json())
             .then(data => setCountries(data))
     }, [])
+    console.log(setCountries)
 
     return (
         <>
             <div>
                 <h3>Total countries: {countries.length}</h3>
+                <h2>Countries I have visited:</h2>
             </div>
             <div className='countries-container'>
                 {
