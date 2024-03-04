@@ -15,7 +15,7 @@ const Country = ({country , handleWantToVisit}) => {
             <h3>Name: {name.common}</h3>
             <h4>Capital: {capital}</h4>
             <img src={flags.png} alt="" />
-            <button onClick={handleWantToVisit}>Want to visit</button>
+            <button onClick={() => handleWantToVisit(country)}>Want to visit</button>
             <button onClick={handleVisited}>{Visited ? 'Visited' : 'Book'}</button>
             {Visited && 'Cool!'}
         </div>

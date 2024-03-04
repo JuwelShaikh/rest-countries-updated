@@ -16,14 +16,15 @@ const Countries = () => {
     
     const handleWantToVisit = (country) => {
         console.log('Want to visit this country');
-        // console.log(country);
+        const newWantedVisitCountry = [...wantToVisit, country];
+        setWantToVisit(newWantedVisitCountry);
     }
 
     return (
         <>
             <div>
                 <h3>Total countries: {countries.length}</h3>
-                <h2>Countries I have visited:</h2>
+                <h2>Countries I have visited:{wantToVisit.length}</h2>
             </div>
             <div className='countries-container'>
                 {
