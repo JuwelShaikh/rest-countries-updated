@@ -14,6 +14,7 @@ const Country = ({country}) => {
             <h3>Name: {name.common}</h3>
             <h4>Capital: {capital}</h4>
             <img src={flags.png} alt="" />
+            <button>Mark as visit</button>
             <button onClick={handleVisited}>{Visited ? 'Visited' : 'Book'}</button>
             {Visited && 'Cool!'}
         </div>
