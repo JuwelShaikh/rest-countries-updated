@@ -13,7 +13,7 @@ const Countries = () => {
             .then(res => res.json())
             .then(data => setCountries(data))
     }, [])
-    
+
     const handleWantToVisit = (country) => {
         console.log('Want to visit this country');
         const newWantedVisitCountry = [...wantToVisit, country];
@@ -24,15 +24,22 @@ const Countries = () => {
         <>
             <div>
                 <h3>Total countries: {countries.length}</h3>
-                <h2>Countries I want to visit:{wantToVisit.length}</h2>
+                <div>
+                    <h2>Countries I want to visit:{wantToVisit.length}</h2>
+                    <ul>
+                        {
+                            wantToVisit.map(country => <li key={country.cca2}>{country.name.common}</li>)
+                        }
+                    </ul>
+                </div>
             </div>
             <div className='countries-container'>
                 {
-                    countries.map(country => <Country 
-                        key={country.cca2} 
-                        country={country} 
+                    countries.map(country => <Country
+                        key={country.cca2}
+                        country={country}
                         handleWantToVisit={handleWantToVisit}
-                        />)
+                    />)
                 }
             </div>
         </>
