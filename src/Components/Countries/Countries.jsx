@@ -24,7 +24,7 @@ const Countries = () => {
         <>
             <div>
                 <h3>Total countries: {countries.length}</h3>
-                <h2>Countries I have visited:{wantToVisit.length}</h2>
+                <h2>Countries I want to visit:{wantToVisit.length}</h2>
             </div>
             <div className='countries-container'>
                 {
