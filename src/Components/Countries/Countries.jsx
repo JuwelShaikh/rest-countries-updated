@@ -16,7 +16,7 @@ const Countries = () => {
     
     const handleWantToVisit = (country) => {
         console.log('Want to visit this country');
-        console.log(country);
+        // console.log(country);
     }
 
     return (
