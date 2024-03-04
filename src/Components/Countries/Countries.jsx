@@ -4,14 +4,20 @@ import { useEffect } from 'react';
 import Country from '../Country/Country';
 
 const Countries = () => {
-    const [countries, setCountries] = useState([])
+    const [countries, setCountries] = useState([]);
+
+    const [wantToVisit, setWantToVisit] = useState([]);
 
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
             .then(res => res.json())
             .then(data => setCountries(data))
     }, [])
-    console.log(setCountries)
+    
+    const handleWantToVisit = (country) => {
+        console.log('Want to visit this country');
+        console.log(country);
+    }
 
     return (
         <>
@@ -21,7 +27,11 @@ const Countries = () => {
             </div>
             <div className='countries-container'>
                 {
-                    countries.map(country => <Country key={country.cca2} country={country} />)
+                    countries.map(country => <Country 
+                        key={country.cca2} 
+                        country={country} 
+                        handleWantToVisit={handleWantToVisit}
+                        />)
                 }
             </div>
         </>
