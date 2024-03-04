@@ -8,6 +8,8 @@ const Countries = () => {
 
     const [wantToVisit, setWantToVisit] = useState([]);
 
+    const [flas, setFlags] = useState([]);
+
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
             .then(res => res.json())
@@ -18,6 +20,11 @@ const Countries = () => {
         console.log('Want to visit this country');
         const newWantedVisitCountry = [...wantToVisit, country];
         setWantToVisit(newWantedVisitCountry);
+    }
+
+    const handleFlags = (country) => {
+        const newFlags = [...flas, country];
+        setFlags(newFlags)
     }
 
     return (
@@ -32,6 +39,15 @@ const Countries = () => {
                         }
                     </ul>
                 </div>
+                <div>
+                    <h2>Flags I like:</h2>
+                    <div className='flags'>
+                        {
+                            flas.map(country => <img key={country.cca2} src={country.flags.png} />)
+                        }
+                    </div>
+
+                </div>
             </div>
             <div className='countries-container'>
                 {
@@ -39,6 +55,7 @@ const Countries = () => {
                         key={country.cca2}
                         country={country}
                         handleWantToVisit={handleWantToVisit}
+                        handleFlags={handleFlags}
                     />)
                 }
             </div>
